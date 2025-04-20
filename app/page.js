@@ -86,9 +86,6 @@ export default function Home() {
           ))}
         </div>
       )}
-        <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8069198795330862"
-     crossorigin="anonymous"></script></head>
       
     </div>
   );

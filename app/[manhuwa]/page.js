@@ -158,7 +158,7 @@ export default function ManhuwaPage() {
         <p className="manhuwas-source">{manhuwaInfo.link}</p><br />
         <Image
           className="manhuwas-img"
-          src={manhuwaInfo.src}
+          src={manhuwaInfo.src.trim()}
           alt={manhuwaInfo.name}
           width={240}
           height={320}

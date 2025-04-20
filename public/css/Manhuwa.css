@@ -1,0 +1,104 @@
+
+.manhuwas-container {
+  padding: 2rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.manhuwas-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #20447c;
+  text-align: center;
+}
+
+.manhuwas-img {
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(30, 41, 59, 0.08);
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+}
+
+.manhuwas-source {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #555;
+}
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.chapter-box {
+  background: #f1f5f9;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  transition: background 0.2s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  color: #2563eb;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.chapter-box:hover,
+.chapter-box:focus {
+  background: #e0e7ef;
+  color: #1e40af;
+}
+
+
+
+/* Loading container */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+}
+
+/* Loading text */
+.loading p {
+  font-size: 24px; /* Adjust font size */
+  color: #2563eb; /* Change color to match your theme */
+  margin-bottom: 20px; /* Space between text and spinner */
+  animation: fadeIn 1s; /* Optional: fade-in animation */
+}
+
+/* Spinner */
+.spinner {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #2563eb; /* Blue */
+  border-radius: 50%; /* Circular shape */
+  width: 50px; /* Spinner size */
+  height: 50px; /* Spinner size */
+  animation: spin 1s linear infinite; /* Spin animation */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Spin animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

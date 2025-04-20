@@ -1,0 +1,109 @@
+.site-form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #f5f5f4; /* Neutral light gray */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.05); /* softer shadow */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .site-form {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .site-input {
+    flex-grow: 1;
+    padding: 0.5rem 0.75rem;
+    border: 2px solid #d6d3d1; /* neutral medium gray */
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+    color: #27272a; /* dark neutral text */
+  }
+  
+  .site-input::placeholder {
+    color: #a8a29e; /* neutral placeholder */
+  }
+  
+  .site-input:focus {
+    outline: none;
+    border-color: #78716c; /* darker neutral on focus */
+    box-shadow: 0 0 0 3px rgb(120 113 108 / 0.3);
+  }
+  
+  .site-button {
+    padding: 0 1.25rem;
+    background-color: #78716c; /* neutral medium-dark */
+    color: #fafaf9; /* off-white */
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+  
+  .site-button:disabled {
+    background-color: #a8a29e; /* lighter neutral */
+    cursor: not-allowed;
+  }
+  
+  .site-button:not(:disabled):hover,
+  .site-button:not(:disabled):focus {
+    background-color: #57534e; /* darker neutral */
+  }
+  
+  .error-message {
+    color: #b45309; /* amber/dark yellow for warnings */
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .site-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .site-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e7e5e4; /* very light neutral border */
+  }
+  
+  .site-favicon {
+    border-radius: 4px;
+  }
+  
+  .site-title {
+    flex-grow: 1;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #3f3f46; /* dark gray */
+  }
+  
+  .remove-button {
+    background-color: transparent;
+    border: 1px solid #a855f7; /* soft purple */
+    color: #a855f7;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+  }
+  
+  .remove-button:hover,
+  .remove-button:focus {
+    background-color: #a855f7;
+    color: white;
+    outline: none;
+  }
+  

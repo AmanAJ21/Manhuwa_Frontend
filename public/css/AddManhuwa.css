@@ -1,0 +1,251 @@
+.manhuwa-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.manhuwa-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  align-items: flex-end;
+}
+
+.manhuwa-form label {
+  flex-basis: 100%;
+  font-weight: 600;
+  color: #555;
+}
+
+.manhuwa-form input[type='text'] {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.manhuwa-form input[type='text']:focus {
+  outline: none;
+  border-color: #888;
+  box-shadow: 0 0 5px rgba(136, 136, 136, 0.3);
+}
+
+.manhuwa-form input[type='text']:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.manhuwa-form button {
+  padding: 0.5rem 1.5rem;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.manhuwa-form button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.manhuwa-form button:not(:disabled):hover,
+.manhuwa-form button:not(:disabled):focus-visible {
+  background-color: #333;
+  outline: none;
+}
+
+.error-message {
+  color: #b45309;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.site-results {
+  margin-bottom: 2rem;
+}
+
+.site-results h3 {
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.favicon-placeholder {
+  width: 20px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 3px;
+}
+
+/* === Search results list === */
+
+.manhuwa-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.manhuwa-item {
+  background: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s ease;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.manhuwa-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgb(0 0 0 / 0.15);
+}
+
+.manhuwa-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  flex-grow: 1;
+}
+
+.manhuwa-image {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  object-fit: cover;
+  border-radius: 6px 6px 0 0;
+}
+
+.manhuwa-name {
+  margin: 0.5rem 0 0.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+}
+
+.add-manhuwa-button {
+  margin: 0 1rem;
+  padding: 0.4rem 0.75rem;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.add-manhuwa-button:hover,
+.add-manhuwa-button:focus-visible {
+  background-color: #1d4ed8;
+  outline: none;
+}
+
+/* === Saved manhuwas grid === */
+
+.manhuwa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.manhuwa-box {
+  background: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  text-align: center;
+  color: black;
+  padding: 0.5rem;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: none;
+}
+
+.manhuwa-box:hover,
+.manhuwa-box:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgb(0 0 0 / 0.15);
+  outline: none;
+}
+
+.manhuwa-box img {
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.manhuwa-box p {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.source-site {
+  color: black;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* Buttons inside manhuwa boxes */
+.manhuwa-box button {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border: none;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.manhuwa-box button:hover,
+.manhuwa-box button:focus-visible {
+  background-color: #c0392b;
+  outline: none;
+}
+
+/* Accessibility: focus outlines for inputs and buttons */
+.manhuwa-form input[type='text']:focus-visible,
+.manhuwa-form button:focus-visible,
+.add-manhuwa-button:focus-visible,
+.manhuwa-box button:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Responsive tweak */
+@media (max-width: 400px) {
+  .manhuwa-list,
+  .manhuwa-grid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
+}

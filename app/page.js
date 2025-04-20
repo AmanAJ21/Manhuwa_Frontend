@@ -70,7 +70,7 @@ export default function Home() {
               }}
               style={{ cursor: 'pointer' }}
             >
-              <Image src={manhwa.src} alt={manhwa.name} width={120} height={174} />
+              <Image src={manhwa.src.trim()} alt={manhwa.name} width={120} height={174} />
               <p>{manhwa.name}</p>
               <small>{manhwa.sourceSite}</small>
               {manhwa.hasUpdates && <span style={{ color: 'red' }}>New Chapters Available!</span>}

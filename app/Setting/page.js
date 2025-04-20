@@ -7,7 +7,7 @@ import { loadSites, loadManhuwas, saveSites, saveManhuwas } from '../utils/stora
 export default function Setting() {
   const [storageData, setStorageData] = useState({});
   const [loading, setLoading] = useState(false);
-  const [showStorageData, setShowStorageData] = useState(true);
+  const [showStorageData, setShowStorageData] = useState(false);
   const fileInputRef = useRef(null);
 
   // Load all localStorage data on mount

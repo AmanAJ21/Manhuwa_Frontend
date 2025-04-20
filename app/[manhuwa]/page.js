@@ -27,7 +27,6 @@ function decodeLink(encoded) {
 export default function ManhuwaPage() {
   const router = useRouter();
   const params = useParams();
-  // For /manhuwa/[manhuwa], params.manhwa is the encoded link
   const encodedLink = params?.manhuwa;
 
   const [manhuwaInfo, setManhuwaInfo] = useState(null);
@@ -54,7 +53,6 @@ export default function ManhuwaPage() {
   async function fetchChapters(url, storageKey, targetName) {
     setLoading(true);
     try {
-      // Get cached chapters here
       const cachedChapters = JSON.parse(localStorage.getItem(storageKey) || '[]');
 
       const response = await fetch(process.env.NEXT_PUBLIC_URL + '/api/chapter-links', {
@@ -82,7 +80,6 @@ export default function ManhuwaPage() {
       setLoading(false);
     }
   }
-
 
   useEffect(() => {
     if (!encodedLink) {
@@ -117,7 +114,6 @@ export default function ManhuwaPage() {
     }
   }, [encodedLink, loadChapters, router]);
 
-
   // Extract chapter number from chapter text, e.g. "Chapter 202" → "202"
   function extractChapterNumber(text) {
     const match = text.match(/[\d.]+/);
@@ -129,7 +125,6 @@ export default function ManhuwaPage() {
     setSelectedChapter(chapter);
     const chapterNumber = extractChapterNumber(chapter.text);
     const chapterSlug = `chapter-${chapterNumber}`;
-    // Navigate to /manhuwa/[manhuwa]/[chapter]
     router.push(`/${encodedLink}/${chapterSlug}`);
   }
 
@@ -137,14 +132,13 @@ export default function ManhuwaPage() {
     return (
       <>
         <Menu />
-        <div className='loading'>
+        <div className="loading">
           <p>Loading manhuwa...</p>
-          <div className='spinner'></div>
+          <div className="spinner"></div>
         </div>
       </>
     );
   }
-
 
   if (!manhuwaInfo) {
     return <p>Manhuwa info not found. Please navigate from the home page.</p>;
@@ -155,16 +149,16 @@ export default function ManhuwaPage() {
       <Menu />
       <div className="manhuwas-container">
         <h1 className="manhuwas-title">{manhuwaInfo.name}</h1>
-        <p className="manhuwas-source">{manhuwaInfo.link}</p><br />
+        <p className="manhuwas-source">{manhuwaInfo.link}</p>
+        <br />
         <Image
           className="manhuwas-img"
-          src={manhuwaInfo.src.trim()}
+          src={manhuwaInfo.src}
           alt={manhuwaInfo.name}
           width={240}
           height={320}
           priority
         />
-
 
         <div className="chapters-grid">
           {chapters.length > 0 ? (
@@ -185,6 +179,31 @@ export default function ManhuwaPage() {
           ) : (
             <p>No chapters available.</p>
           )}
+        </div>
+
+        {/* Fetch button shown always, but disabled while loading */}
+        <div style={{ marginTop: '1rem' }}>
+          <button
+            onClick={() => {
+              if (manhuwaInfo) {
+                const chaptersKey = CHAPTERS_STORAGE_KEY_PREFIX + manhuwaInfo.link;
+                fetchChapters(manhuwaInfo.link, chaptersKey, manhuwaInfo.name);
+              }
+            }}
+            disabled={loading}
+            style={{
+              padding: '0.5rem 1rem',
+              fontWeight: 'bold',
+              backgroundColor: '#2563eb',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: loading ? 'not-allowed' : 'pointer',
+            }}
+            aria-label="Fetch chapters from server"
+          >
+            {loading ? 'Fetching...' : chapters.length === 0 ? 'Fetch Chapters' : 'Refresh Chapters'}
+          </button>
         </div>
 
         <ScrollToTopButton />

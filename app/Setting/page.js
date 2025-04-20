@@ -157,7 +157,6 @@ export default function Setting() {
       <Menu />
 
       <div style={{ padding: '1rem ', maxWidth: '800px', margin: '0 auto' }}>
-        <h1>LocalStorage Data</h1>
 
         <div style={{ marginBottom: '1rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           <button

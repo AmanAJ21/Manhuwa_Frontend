@@ -7,6 +7,7 @@ import { loadSites, loadManhuwas, saveSites, saveManhuwas } from '../utils/stora
 export default function Setting() {
   const [storageData, setStorageData] = useState({});
   const [loading, setLoading] = useState(false);
+  const [showStorageData, setShowStorageData] = useState(true);
   const fileInputRef = useRef(null);
 
   // Load all localStorage data on mount
@@ -140,7 +141,7 @@ export default function Setting() {
     borderRadius: '5px',
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems : 'center',
+    alignItems: 'center',
     wordBreak: 'break-word',
   };
 
@@ -177,6 +178,15 @@ export default function Setting() {
             {loading ? 'Importing...' : 'Import Data'}
           </button>
 
+          <button
+            onClick={() => setShowStorageData((prev) => !prev)}
+            style={{ ...buttonStyle, backgroundColor: '#f59e0b' }}
+            aria-label={showStorageData ? 'Hide localStorage data' : 'Show localStorage data'}
+            disabled={loading}
+          >
+            {showStorageData ? 'Hide Data' : 'Show Data'}
+          </button>
+
           <input
             type="file"
             accept="application/json"
@@ -187,32 +197,34 @@ export default function Setting() {
           />
         </div>
 
-        {Object.keys(storageData).length === 0 ? (
-          <p>No data found in localStorage.</p>
-        ) : (
-          <>
-            <h2>All LocalStorage Items</h2>
-            <ul style={{ listStyle: 'none', padding: 0 }}>
-              {Object.entries(storageData).map(([key, value]) => (
-                <li key={key} style={listItemStyle}>
-                  <div>
-                    <strong>{key}:</strong>{' '}
-                    <pre style={preStyle}>
-                      {typeof value === 'object' ? JSON.stringify(value, null, 2) : value}
-                    </pre>
-                  </div>
-                  <button
-                    onClick={() => handleRemove(key)}
-                    style={removeButtonStyle}
-                    aria-label={`Remove localStorage item ${key}`}
-                    disabled={loading}
-                  >
-                    Remove
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </>
+        {showStorageData && (
+          Object.keys(storageData).length === 0 ? (
+            <p>No data found in localStorage.</p>
+          ) : (
+            <>
+              <h2>All LocalStorage Items</h2>
+              <ul style={{ listStyle: 'none', padding: 0 }}>
+                {Object.entries(storageData).map(([key, value]) => (
+                  <li key={key} style={listItemStyle}>
+                    <div>
+                      <strong>{key}:</strong>{' '}
+                      <pre style={preStyle}>
+                        {typeof value === 'object' ? JSON.stringify(value, null, 2) : value}
+                      </pre>
+                    </div>
+                    <button
+                      onClick={() => handleRemove(key)}
+                      style={removeButtonStyle}
+                      aria-label={`Remove localStorage item ${key}`}
+                      disabled={loading}
+                    >
+                      Remove
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )
         )}
       </div>
     </>
